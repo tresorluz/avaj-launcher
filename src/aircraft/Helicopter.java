@@ -24,14 +24,14 @@ public class Helicopter extends Aircraft implements Flyable {
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("Helicopter#" + this.name + "(" + this.id + ") Oh no, It's Raining again");
+                FileLogger.log("Helicopter#" + this.name + "(" + this.id + ") Oh no, It's Raining again");
                 break;
             case "FOG":
                 this.coordinates.setLongitude(this.coordinates.getLongitude() + 1);
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("Helicopter#" + this.name + "(" + this.id + ") It's too Foggy today!");
+                FileLogger.log("Helicopter#" + this.name + "(" + this.id + ") It's too Foggy today!");
                 break;
             case "SUN":
                 this.coordinates.setHeight(this.coordinates.getHeight() + 2);
@@ -39,22 +39,22 @@ public class Helicopter extends Aircraft implements Flyable {
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("Helicopter#" + this.name + "(" + this.id + ") What a beautiful and sunny day");
+                FileLogger.log("Helicopter#" + this.name + "(" + this.id + ") What a beautiful and sunny day");
                 break;
             case "SNOW":
                 this.coordinates.setHeight(this.coordinates.getHeight() - 12);
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("Helicopter#" + this.name + "(" + this.id + ") This snow makes it difficult to land!");
+                FileLogger.log("Helicopter#" + this.name + "(" + this.id + ") This snow makes it difficult to land!");
                 break;
             default:
                 return;
         }
 
         if(this.coordinates.getHeight() <= 0){
-            Logger.log("Helicopter#" + this.name + "(" + this.id + ") Has landed");
-            Logger.log("Tower says : Helicopter#" + this.name + "(" + this.id + ") unregistered from weather tower");
+            FileLogger.log("Helicopter#" + this.name + "(" + this.id + ") Has landed");
+            FileLogger.log("Tower says : Helicopter#" + this.name + "(" + this.id + ") unregistered from weather tower");
             weatherTower.unregister(this);
         }
 
@@ -62,7 +62,7 @@ public class Helicopter extends Aircraft implements Flyable {
     }
 
     public void registerTower(WeatherTower weatherTower){
-        Logger.log("Tower says : Helicopter#" + this.name + "(" + this.id + ") registered to weather tower");
+        FileLogger.log("Tower says : Helicopter#" + this.name + "(" + this.id + ") registered to weather tower");
 
     }
 }

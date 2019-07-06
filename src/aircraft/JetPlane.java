@@ -26,14 +26,14 @@ public class JetPlane extends Aircraft implements Flyable {
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("JetPlane#" + this.name + "(" + this.id + ") This rain won't stop?");
+                FileLogger.log("JetPlane#" + this.name + "(" + this.id + ") This rain won't stop?");
                 break;
             case "FOG":
                 this.coordinates.setLatitude(this.coordinates.getLatitude() + 1);
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("JetPlane#" + this.name + "(" + this.id + ") It's too foggy these days!!");
+                FileLogger.log("JetPlane#" + this.name + "(" + this.id + ") It's too foggy these days!!");
                 break;
             case "SUN":
                 this.coordinates.setHeight(this.coordinates.getHeight() + 2);
@@ -41,27 +41,27 @@ public class JetPlane extends Aircraft implements Flyable {
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("JetPlane#" + this.name + "(" + this.id + ") Wow the sun is shining brighter today");
+                FileLogger.log("JetPlane#" + this.name + "(" + this.id + ") Wow the sun is shining brighter today");
                 break;
             case "SNOW":
                 this.coordinates.setHeight(this.coordinates.getHeight() - 7);
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("JetPlane#" + this.name + "(" + this.id + ") This snow is unbearable.");
+                FileLogger.log("JetPlane#" + this.name + "(" + this.id + ") This snow is unbearable.");
                 break;
             default:
                 return;
         }
 
         if(this.coordinates.getHeight() <= 0){
-            Logger.log("JetPlane#" + this.name + "(" + this.id + ") Has landed");
-            Logger.log("Tower says : JetPlane#" + this.name + "(" + this.id + ") unregistered from weather tower");
+            FileLogger.log("JetPlane#" + this.name + "(" + this.id + ") Has landed");
+            FileLogger.log("Tower says : JetPlane#" + this.name + "(" + this.id + ") unregistered from weather tower");
             weatherTower.unregister(this);
         }
     }
 
     public void registerTower(WeatherTower weatherTower){
-        Logger.log("Tower says : JetPlane#" + this.name + "(" + this.id + ") registered to weather tower");
+        FileLogger.log("Tower says : JetPlane#" + this.name + "(" + this.id + ") registered to weather tower");
     }
 }

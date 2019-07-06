@@ -15,7 +15,7 @@ public class Simulation {
 
     public static void main(String[] args) {
         try{
-            Logger.createSimulationFile("simulation.txt");
+            FileLogger.createSimulationFile("simulation.txt");
             BufferedReader reader = new BufferedReader(new FileReader("scenario.txt"));
             String line = reader.readLine();
             int i = 0;

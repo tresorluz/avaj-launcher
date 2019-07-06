@@ -2,22 +2,22 @@ package weather;
 
 import java.io.*;
 
-public class Logger {
+public class FileLogger {
 
     private static  Writer writer = null;
 
     public static void createSimulationFile(String filename) throws IOException {
-        if(Logger.writer != null){
+        if(FileLogger.writer != null){
             writer.close();
         }
 
-        Logger.writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filename), "UTF-8"));
+        FileLogger.writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filename), "UTF-8"));
     }
 
     public static void log (String message){
         try{
             System.out.println(message);
-            Logger.writer.write(message + '\n');
+            FileLogger.writer.write(message + '\n');
             writer.flush();
         }
         catch(IOException e){

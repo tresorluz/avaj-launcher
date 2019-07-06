@@ -26,14 +26,14 @@ public class Baloon  extends Aircraft implements Flyable {
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("Baloon#" + this.name + "(" + this.id + ") This Rain is too much!!");
+                FileLogger.log("Baloon#" + this.name + "(" + this.id + ") This Rain is too much!!");
                 break;
             case "FOG":
                 this.coordinates.setHeight(this.coordinates.getHeight() - 3);
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("Baloon#" + this.name + "(" + this.id + ") It's Foggy i can't see clearly");
+                FileLogger.log("Baloon#" + this.name + "(" + this.id + ") It's Foggy i can't see clearly");
                 break;
             case "SUN":
                 this.coordinates.setHeight(this.coordinates.getHeight() + 4);
@@ -41,26 +41,26 @@ public class Baloon  extends Aircraft implements Flyable {
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("Baloon#" + this.name + "(" + this.id + ") Finally it's Sunny today");
+                FileLogger.log("Baloon#" + this.name + "(" + this.id + ") Finally it's Sunny today");
                 break;
             case "SNOW":
                 this.coordinates.setHeight(this.coordinates.getHeight() - 15);
                 if (this.coordinates.getHeight() > 100) {
                     this.coordinates.setHeight(100);
                 }
-                Logger.log("Baloon#" + this.name + "(" + this.id + ") This Snow is too much and i'm freezing ");
+                FileLogger.log("Baloon#" + this.name + "(" + this.id + ") This Snow is too much and i'm freezing ");
                 break;
             default:
                 break;
         }
         if(this.coordinates.getHeight() <= 0){
-            Logger.log("Baloon#" + this.name + "(" + this.id + ") Has landed successfully");
-            Logger.log("Tower says : Baloon#" + this.name + "(" + this.id + ") unregistered from weather tower");
+            FileLogger.log("Baloon#" + this.name + "(" + this.id + ") Has landed successfully");
+            FileLogger.log("Tower says : Baloon#" + this.name + "(" + this.id + ") unregistered from weather tower");
             weatherTower.unregister(this);
         }
     }
 
     public void registerTower(WeatherTower weatherTower){
-        Logger.log("Tower says : Baloon#" + this.name + "(" + this.id + ") registered to weather tower");
+        FileLogger.log("Tower says : Baloon#" + this.name + "(" + this.id + ") registered to weather tower");
     }
 }
